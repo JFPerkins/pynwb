@@ -13,15 +13,10 @@ nwbfile = NWBFile('the PyNWB tutorial', 'my first synthetic recording', 'EXAMPLE
                   experiment_description='I went on an adventure with thirteen dwarves to reclaim vast treasures.',
                   session_id='LONELYMTN')
 
-ccf_transform = pynwb.transform.AffineTransform(parent='Mouse CCF')
-ccf_transform.translate(0, 0, 0)
-ccf_transform.scale(10, 10, 10)
-nwbfile.global_cs.add_external_transform(ccf_transform)
-
-image_transform = pynwb.transform.STTransform(
+image_transform = pynwb.spatial.STTransform(
     translate=(2.3e-3, 1.75e-3, -56e-3), 
     scale=(120e-9, 120e-9, 1),
-    parent=nwbfile.global_cs)
+    destination_cs="Mordor")
 
 image_series = pynwb.image.ImageSeries(name="test_images",
                                        source="",
@@ -42,3 +37,4 @@ io = NWBHDF5IO('spatial_test.nwb', 'r')
 nwbfile = io.read()
 
 image = nwbfile.get_acquisition("test_images")
+print(image.transform)
