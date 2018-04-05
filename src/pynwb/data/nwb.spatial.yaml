@@ -1,0 +1,30 @@
+groups:
+- attributes:
+  - doc: The type of transform
+    dtype: str
+    name: transform_type
+  - doc: Source coordinate system
+    dtype: str
+    name: source_cs
+  - doc: Destination coordinate system
+    dtype: str
+    name: destination_cs
+  doc: BaseTransform
+  name: BaseTransform
+  neurodata_type_def: BaseTransform
+  neurodata_type_inc: NWBDataInterface
+- datasets:
+  - doc: Scale
+    dtype: float
+    name: scale
+    shape:
+    - null
+  - doc: Translate
+    dtype: float
+    name: translate
+    shape:
+    - null
+  doc: STTransform
+  name: STTransform
+  neurodata_type_def: STTransform
+  neurodata_type_inc: BaseTransform

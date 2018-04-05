@@ -75,6 +75,9 @@ groups:
     times it will be stored as an external image file in the host file system. The
     data field will either be binary data or empty. TimeSeries::data array structure:
     [frame] [y][x] or [frame][z][y][x].'
+  groups:
+  - doc: BaseTransform
+    neurodata_type_inc: BaseTransform
   neurodata_type_def: ImageSeries
   neurodata_type_inc: TimeSeries
 - attributes:

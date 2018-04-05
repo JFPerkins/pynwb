@@ -25,6 +25,8 @@ image_series = pynwb.image.ImageSeries(name="test_images",
                                        rate=30.0,
                                        transform=image_transform)
 
+print(image_series.transform)
+
 
 nwbfile.add_acquisition(image_series)
 

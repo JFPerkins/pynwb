@@ -5,6 +5,7 @@ from .form.utils import docval, popargs, call_docval_func
 
 from . import register_class, CORE_NAMESPACE
 from .base import TimeSeries, _default_resolution, _default_conversion
+from .spatial import BaseTransform
 
 
 @register_class('ImageSeries', CORE_NAMESPACE)
@@ -63,16 +64,19 @@ class ImageSeries(TimeSeries):
             {'name': 'control_description', 'type': Iterable,
              'doc': 'Description of each control value', 'default': None},
             {'name': 'parent', 'type': 'NWBContainer',
-             'doc': 'The parent NWBContainer for this NWBContainer', 'default': None})
+             'doc': 'The parent NWBContainer for this NWBContainer', 'default': None},
+            {'name': 'transform', 'type': BaseTransform, 'doc': 'transform', 'default': None})
     def __init__(self, **kwargs):
-        bits_per_pixel, dimension, external_file, starting_frame, format = popargs(
-            'bits_per_pixel', 'dimension', 'external_file', 'starting_frame', 'format', kwargs)
+        bits_per_pixel, dimension, external_file, starting_frame, format, transform = popargs(
+            'bits_per_pixel', 'dimension', 'external_file', 'starting_frame', 'format', 'transform',
+            kwargs)
         call_docval_func(super(ImageSeries, self).__init__, kwargs)
         self.bits_per_pixel = bits_per_pixel
         self.dimension = dimension
         self.external_file = external_file
         self.starting_frame = starting_frame
         self.format = format
+        self.transform = transform
 
 
 @register_class('IndexSeries', CORE_NAMESPACE)

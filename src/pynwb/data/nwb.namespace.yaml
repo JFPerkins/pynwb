@@ -24,4 +24,5 @@ namespaces:
   - source: nwb.ogen.yaml
   - source: nwb.ophys.yaml
   - source: nwb.retinotopy.yaml
+  - source: nwb.spatial.yaml
   version: 1.2.0
