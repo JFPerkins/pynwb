@@ -14,6 +14,8 @@ nwbfile = NWBFile('the PyNWB tutorial', 'my first synthetic recording', 'EXAMPLE
                   session_id='LONELYMTN')
 
 image_transform = pynwb.spatial.STTransform(
+    name="transform",
+    source="",
     translate=(2.3e-3, 1.75e-3, -56e-3), 
     scale=(120e-9, 120e-9, 1),
     destination_cs="Mordor")
@@ -33,7 +35,6 @@ nwbfile.add_acquisition(image_series)
 io = NWBHDF5IO('spatial_test.nwb', 'w')
 io.write(nwbfile)
 io.close()
-
 
 io = NWBHDF5IO('spatial_test.nwb', 'r')
 nwbfile = io.read()

@@ -77,6 +77,7 @@ groups:
     [frame] [y][x] or [frame][z][y][x].'
   groups:
   - doc: BaseTransform
+    name: transform
     neurodata_type_inc: BaseTransform
   neurodata_type_def: ImageSeries
   neurodata_type_inc: TimeSeries

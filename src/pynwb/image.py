@@ -65,7 +65,7 @@ class ImageSeries(TimeSeries):
              'doc': 'Description of each control value', 'default': None},
             {'name': 'parent', 'type': 'NWBContainer',
              'doc': 'The parent NWBContainer for this NWBContainer', 'default': None},
-            {'name': 'transform', 'type': BaseTransform, 'doc': 'transform', 'default': None})
+            {'name': 'transform', 'type': BaseTransform, 'doc': 'BaseTransform', 'default': None})
     def __init__(self, **kwargs):
         bits_per_pixel, dimension, external_file, starting_frame, format, transform = popargs(
             'bits_per_pixel', 'dimension', 'external_file', 'starting_frame', 'format', 'transform',
